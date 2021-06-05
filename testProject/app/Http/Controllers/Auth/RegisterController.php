@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use App\Models\Users;
 use Carbon\Carbon;
 
@@ -47,7 +48,8 @@ class RegisterController extends BaseController
     }
 
     public function allusers() {
-        return view('allusers', ['data' => Users::all()]);
+        $user = new User;
+        return view('allusers', ['data' => $user->orderBy('id', 'desc')->get()]);
     }
 
     /*public function create(array $data): string

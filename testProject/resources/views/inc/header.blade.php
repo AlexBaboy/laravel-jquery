@@ -15,12 +15,8 @@
                         <a class="nav-link active" href="{{ route('register') }}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('data') }}">Data</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" href="{{ route('users-data') }}">All users</a>
                     </li>
-
                 </ul>
 
             </div>

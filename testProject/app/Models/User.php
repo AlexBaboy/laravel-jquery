@@ -48,4 +48,5 @@ class User extends Authenticatable
     public static function where(string $string, int $c)
     {
     }
+
 }
