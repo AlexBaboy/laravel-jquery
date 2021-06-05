@@ -53,6 +53,11 @@ class RegisterController extends BaseController
         //return view('allusers', ['data' => $user->where('first_name', '=', 'Alex')->get()]);
     }
 
+    public function updateUser($id) {
+        $user = new User;
+        return view('update-user', ['data' => $user->find($id)]);
+    }
+
     /*public function create(array $data): string
     {
         $c = 10000;
