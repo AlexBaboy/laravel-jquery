@@ -50,6 +50,7 @@ class RegisterController extends BaseController
     public function allusers() {
         $user = new User;
         return view('allusers', ['data' => $user->orderBy('id', 'desc')->get()]);
+        //return view('allusers', ['data' => $user->where('first_name', '=', 'Alex')->get()]);
     }
 
     /*public function create(array $data): string
