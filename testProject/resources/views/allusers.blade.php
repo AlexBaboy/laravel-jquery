@@ -12,6 +12,9 @@
             <p>{{ $user->company_name }}</p>
             <p>{{ $user->phone }}</p>
             <p>{{ $user->created_at }}</p>
+            <p>
+                <a href="{{ route('user-update', $user->id) }}">update</a>
+            </p>
         </div>
     @endforeach
 @endsection

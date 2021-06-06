@@ -14,6 +14,7 @@ Route::get('/data', function () {
 })->name('data');
 
 Route::post('/register/submit', 'App\Http\Controllers\Auth\RegisterController@create')->name('user-form');
-Route::get('/register/allusers', 'App\Http\Controllers\Auth\RegisterController@allusers')->name('users-data');
+Route::get('/allusers', 'App\Http\Controllers\Auth\RegisterController@allusers')->name('users-data');
 
-
+Route::get('/allusers/{id}/update', 'App\Http\Controllers\Auth\RegisterController@updateUser')->name('user-update');
+Route::post('/makeupdate', 'App\Http\Controllers\Auth\RegisterController@updateUserMake')->name('user-update-make');

@@ -8,7 +8,7 @@ Update
 <h1>Update</h1>
 
 <div>
-
+    @csrf
     <div class="form-group">
         <label for="name">Email</label>
         <input type="text" name="email" placeholder="Enter email" id="email" value="{{$data->email}}" class="form-control">
@@ -32,6 +32,10 @@ Update
 
     <button class="btn btn-success">update</button>
 </div>
+
+
+
+    <script src="{{ URL::asset('/js/userUpdate.js') }}"></script>
 
     @endsection
 

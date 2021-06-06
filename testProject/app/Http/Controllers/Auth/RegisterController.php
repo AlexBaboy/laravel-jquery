@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Users;
 use Carbon\Carbon;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -56,6 +57,20 @@ class RegisterController extends BaseController
     public function updateUser($id) {
         $user = new User;
         return view('update-user', ['data' => $user->find($id)]);
+    }
+
+    public function updateUserMake(Request $req): \Illuminate\Http\JsonResponse
+    {
+        $user = User::find($req->id);
+        $user->email = $req->input('email');
+        $user->first_name = $req->input('first_name');
+        $user->last_name = $req->input('last_name');
+        $user->company_name = $req->input('company_name');
+        $user->phone = $req->input('phone');
+
+        $user->save();
+
+        return response()->json($user);
     }
 
     /*public function create(array $data): string
