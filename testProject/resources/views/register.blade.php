@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1>Register</h1>
+    <h1 class="mt-4 mb-4">Register</h1>
 
     <form action="{{ route('user-form')}}" method="post">
         @csrf

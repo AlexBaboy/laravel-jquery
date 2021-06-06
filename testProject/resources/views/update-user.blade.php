@@ -5,7 +5,7 @@ Update
 @endsection
 
 @section('content')
-<h1>Update</h1>
+<h1 class="mt-4 mb-4">Update</h1>
 
     <form id="user-update-form">
         @csrf
