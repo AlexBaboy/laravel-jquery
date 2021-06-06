@@ -1,7 +1,4 @@
-/*$("body").overHang({
-    activity :"notification",
-    message :"This is a notification message"
-})*/
+
 
 $(".btn").click(function() {
 
@@ -29,8 +26,19 @@ $(".btn").click(function() {
         data: values,
         success: function () {
             console.log("ok!");
+
+            $(".bs-component").overhang({
+                type: "success",
+                message: "Record updated successfully",
+                overlay: true
+            })
+
         }, error: function() {
-            console.log("error!");
+            $(".bs-component").overhang({
+                type: "error",
+                message: "Something went wrong!",
+                overlay: true
+            })
         }
     })
 

@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title-block')</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/css/app.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="script" src="{{ URL::asset('/libs/overHang/lib/overhang.css') }}" />
-    <script src="{{ URL::asset('/libs/overHang/lib/overhang.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" src="{{ URL::asset('/libs/overHang/dist/overhang.min.css') }}" />
+    <script src="{{ URL::asset('/libs/overHang/dist/overhang.min.js') }}"></script>
 </head>
 <body>
 
