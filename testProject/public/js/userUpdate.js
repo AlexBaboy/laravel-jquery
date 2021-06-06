@@ -1,14 +1,14 @@
 $(".btn").click(function() {
 
-    var isErrors = checkFormUpdate();
+    let isErrors = checkFormUpdate();
 
-    if(isErrors !== false)
+    if(isErrors !== true)
         makeUpdate();
 })
 
 function checkFormUpdate() {
 
-    var isErrors = false;
+    let isErrors = false;
 
     //check !!!
     if(!$("[name=email]").val()) {
@@ -18,7 +18,7 @@ function checkFormUpdate() {
         });
         $("[name=email]").focus();
         isErrors = true;
-        return false;
+        return isErrors;
     }
 
     if(!$("[name=phone]").val()) {
@@ -26,9 +26,8 @@ function checkFormUpdate() {
             type: "error",
             message: "Enter the correct phone!"
         });
-        $("[name=phone]").focus();
         isErrors = true;
-        return false;
+        return isErrors;
     }
 
     if(!$("[name=first-name]").val()) {
@@ -36,9 +35,8 @@ function checkFormUpdate() {
             type: "error",
             message: "Enter the correct first name!"
         });
-        $("[name=first-name]").focus();
         isErrors = true;
-        return false;
+        return isErrors;
     }
 
     if(!$("[name=last-name]").val()) {
@@ -46,9 +44,8 @@ function checkFormUpdate() {
             type: "error",
             message: "Enter the correct last name!"
         });
-        $("[name=last-name]").focus();
         isErrors = true;
-        return false;
+        return isErrors;
     }
 
     if(!$("[name=company-name]").val()) {
@@ -56,9 +53,8 @@ function checkFormUpdate() {
             type: "error",
             message: "Enter the correct company name!"
         });
-        $("[name=company-name]").focus();
         isErrors = true;
-        return false;
+        return isErrors;
     }
 
     return isErrors;
@@ -66,7 +62,7 @@ function checkFormUpdate() {
 
 function makeUpdate() {
 
-    var values = {};
+    const values = {};
     values.id = window.location.href.split("/")[4];
     values.email = $("[name=email]").val().trim();
     values.phone = $("[name=phone]").val().trim();
@@ -80,7 +76,6 @@ function makeUpdate() {
         method: 'POST',
         data: values,
         success: function () {
-            console.log("ok!");
 
             $(".bs-component").overhang({
                 type: "success",
