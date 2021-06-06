@@ -1,4 +1,6 @@
-$(".btn").click(function() {
+$("#user-update-form").submit(function(e) {
+
+    e.preventDefault();
 
     let isErrors = checkFormUpdate();
 

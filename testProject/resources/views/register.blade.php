@@ -38,7 +38,7 @@
             <input type="password" name="confirm-password" placeholder="Confirm password" id="confirm-password" class="form-control">
         </div>
         <button type="submit" class="btn btn-success">register</button>
-
+    </form>
 @endsection
 
 
