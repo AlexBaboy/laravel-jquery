@@ -1,15 +1,70 @@
-
-
 $(".btn").click(function() {
 
+    var isErrors = checkFormUpdate();
+
+    if(isErrors !== false)
+        makeUpdate();
+})
+
+function checkFormUpdate() {
+
+    var isErrors = false;
+
     //check !!!
-    // if(!$("[name=email]").val()) {
-    //     aler
-    // }
+    if(!$("[name=email]").val()) {
+        $(".bs-component").overhang({
+            type: "error",
+            message: "Enter the correct email!"
+        });
+        $("[name=email]").focus();
+        isErrors = true;
+        return false;
+    }
 
+    if(!$("[name=phone]").val()) {
+        $(".bs-component").overhang({
+            type: "error",
+            message: "Enter the correct phone!"
+        });
+        $("[name=phone]").focus();
+        isErrors = true;
+        return false;
+    }
 
-    console.log("window.location", window.location.href.split("/"));
-    console.log("window.location", window.location.href.split("/")[4]);
+    if(!$("[name=first-name]").val()) {
+        $(".bs-component").overhang({
+            type: "error",
+            message: "Enter the correct first name!"
+        });
+        $("[name=first-name]").focus();
+        isErrors = true;
+        return false;
+    }
+
+    if(!$("[name=last-name]").val()) {
+        $(".bs-component").overhang({
+            type: "error",
+            message: "Enter the correct last name!"
+        });
+        $("[name=last-name]").focus();
+        isErrors = true;
+        return false;
+    }
+
+    if(!$("[name=company-name]").val()) {
+        $(".bs-component").overhang({
+            type: "error",
+            message: "Enter the correct company name!"
+        });
+        $("[name=company-name]").focus();
+        isErrors = true;
+        return false;
+    }
+
+    return isErrors;
+}
+
+function makeUpdate() {
 
     var values = {};
     values.id = window.location.href.split("/")[4];
@@ -29,17 +84,14 @@ $(".btn").click(function() {
 
             $(".bs-component").overhang({
                 type: "success",
-                message: "Record updated successfully",
-                overlay: true
+                message: "Record updated successfully"
             })
 
         }, error: function() {
             $(".bs-component").overhang({
                 type: "error",
-                message: "Something went wrong!",
-                overlay: true
+                message: "Something went wrong!"
             })
         }
     })
-
-})
+}
