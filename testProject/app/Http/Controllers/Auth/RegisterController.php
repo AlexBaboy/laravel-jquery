@@ -51,7 +51,6 @@ class RegisterController extends BaseController
     public function allusers() {
         $user = new User;
         return view('allusers', ['data' => $user->orderBy('id', 'desc')->get()]);
-        //return view('allusers', ['data' => $user->where('first_name', '=', 'Alex')->get()]);
     }
 
     public function updateUser($id) {
@@ -73,40 +72,10 @@ class RegisterController extends BaseController
         return response()->json($user);
     }
 
-    /*public function create(array $data): string
+    public function makedelete(Request $req)
     {
-        $c = 10000;
-        do {
-            $c++;
-            $check_user = Users::where("c", $c)->first();
-        } while ($check_user != null);
+        $user = User::find($req->id)->delete();
+        return redirect()->route('home')->with('success', 'record was deleted successfully!');
 
-
-        $colors = ['primary', 'success', 'orange', 'warning', 'danger', 'purple'];
-        $random_color = array_rand($colors, 1);
-        $random_color = $colors($random_color);
-
-        $user = Users::create([
-            'c' => $c,
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'company_name' => $data['company_name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
-            'last_active' => Carbon::now()->toDateTimeString(),
-            'color' => $random_color,
-            'role' => 'user'
-        ]);
-
-        $stripe = new StripeController();
-        $stripe->update_stripe_customer($user->id);
-
-        $email_controller = new SendEmailController();
-        $email_controller->send_email('welcome!', $user->email);
-
-        Log::info("[$user->id] $user->first_name $user->last_name just registered!");
-
-        return $user;
-    }*/
+    }
 }

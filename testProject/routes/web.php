@@ -18,3 +18,5 @@ Route::get('/allusers', 'App\Http\Controllers\Auth\RegisterController@allusers')
 
 Route::get('/allusers/{id}/update', 'App\Http\Controllers\Auth\RegisterController@updateUser')->name('user-update');
 Route::post('/makeupdate', 'App\Http\Controllers\Auth\RegisterController@updateUserMake')->name('user-update-make');
+
+Route::post('/makedelete', 'App\Http\Controllers\Auth\RegisterController@makedelete')->name('user-delete');
